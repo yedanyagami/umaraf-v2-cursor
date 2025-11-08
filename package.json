@@ -4,7 +4,6 @@
   "description": "整合 AutoGen、LangGraph、CrewAI、Swarm 等 AI Agent 框架的 Cursor 擴展",
   "version": "2.0.0",
   "publisher": "yedan",
-  "icon": "resources/icons/umaraf-icon.png",
   "engines": {
     "vscode": "^1.85.0"
   },
