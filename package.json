@@ -1,0 +1,153 @@
+{
+  "name": "umaraf-v2-cursor",
+  "displayName": "UMARAF v2 - AI Agent Integration for Cursor",
+  "description": "整合 AutoGen、LangGraph、CrewAI、Swarm 等 AI Agent 框架的 Cursor 擴展",
+  "version": "2.0.0",
+  "publisher": "yedan",
+  "icon": "resources/icons/umaraf-icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "AI",
+    "Programming Languages",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "agent",
+    "autogen",
+    "langgraph",
+    "crewai",
+    "swarm",
+    "frida",
+    "reverse-engineering",
+    "cursor",
+    "productivity"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "umaraf.optimizeFunction",
+        "title": "UMARAF: AI 優化函數"
+      },
+      {
+        "command": "umaraf.generateDocs",
+        "title": "UMARAF: 生成文檔"
+      },
+      {
+        "command": "umaraf.generateTests",
+        "title": "UMARAF: 生成測試"
+      },
+      {
+        "command": "umaraf.securityAudit",
+        "title": "UMARAF: 安全審查"
+      },
+      {
+        "command": "umaraf.openWorkflow",
+        "title": "UMARAF: 打開工作流程編輯器"
+      },
+      {
+        "command": "umaraf.fridaAnalyze",
+        "title": "UMARAF: Frida 逆向分析"
+      },
+      {
+        "command": "umaraf.benchmarkCode",
+        "title": "UMARAF: 效能測試"
+      }
+    ],
+    "configuration": {
+      "title": "UMARAF v2",
+      "properties": {
+        "umaraf.enableCodeLens": {
+          "type": "boolean",
+          "default": true,
+          "description": "啟用 Code Lens AI 操作按鈕"
+        },
+        "umaraf.enableHoverProvider": {
+          "type": "boolean",
+          "default": true,
+          "description": "啟用懸停 AI 分析"
+        },
+        "umaraf.defaultAgent": {
+          "type": "string",
+          "enum": ["autogen", "langgraph", "crewai", "swarm"],
+          "default": "autogen",
+          "description": "預設 AI Agent 框架"
+        },
+        "umaraf.apiEndpoint": {
+          "type": "string",
+          "default": "http://localhost:8000",
+          "description": "AI Agent API 端點"
+        },
+        "umaraf.enableFrida": {
+          "type": "boolean",
+          "default": false,
+          "description": "啟用 Frida 逆向工程功能"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "umaraf-sidebar",
+          "title": "UMARAF AI",
+          "icon": "resources/icons/umaraf-sidebar.svg"
+        }
+      ]
+    },
+    "views": {
+      "umaraf-sidebar": [
+        {
+          "id": "umaraf-agents",
+          "name": "AI Agents"
+        },
+        {
+          "id": "umaraf-workflows",
+          "name": "工作流程"
+        },
+        {
+          "id": "umaraf-tools",
+          "name": "工具"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "test": "node ./out/test/runTest.js",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "ws": "^8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yedanyagami/umaraf-v2-cursor.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "YEDAN AI System",
+    "email": "yagami8095@gmail.com"
+  }
+}
+
